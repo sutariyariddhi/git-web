@@ -1,3 +1,5 @@
+import nav from "../components/nav.js";
+document.getElementById("nav").innerHTML=nav(nav)
 document.getElementById("form").addEventListener("submit",function(e){
     e.preventDefault();
    let user ={

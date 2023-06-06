@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
     <link rel="stylesheet" href="../style/login.css">
+    <!-- <link rel="stylesheet" href="../style/index.css"> -->
 </head>
 <body>
-    <div id="nav">
-        <a href="#">home</a>
-        <a href="../pages/cart.html">cart</a>
-        <a href="../pages/category.html">category</a>
-        <a href="../pages/login.html">login</a>
-        <a href="../pages/sign.html">sign-up</a>
+    <div id="nav"></div>
+    <div id="form-box">
+        <div id="form-main">
+            <form id="form">
+                <h1 id="htext">login</h1>
+                <input type="email" placeholder="enter your email" id="email">
+                <input type="password" placeholder="enter password" id="password">
+                <input type="submit" value="login" id="submit">    
+            </form>
+        </div>
     </div>
-    <form id="form">
-        <input type="email" placeholder="enter your email" id="email">
-        <input type="password" placeholder="enter password" id="password">
-        <button id="submit">login</button>
-    </form>
-    <script src="../script/login.js"></script>
+    <script src="../script/login.js" type="module" ></script>
 </body>
 </html>

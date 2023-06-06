@@ -1,3 +1,7 @@
+ import nav from "../components/nav.js";
+  
+ document.getElementById("nav").innerHTML=nav()
+
 document.getElementById("form").addEventListener("submit",function(e){
     e.preventDefault();
     let user=JSON.parse(localStorage.getItem("website"))
