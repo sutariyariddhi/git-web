@@ -3,6 +3,8 @@
     display: flex;
     justify-content: space-around;
     padding: 15px;
+    position: fixed;
+    width: 100%; 
 }
 #nav a{
     text-decoration: none;

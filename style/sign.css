@@ -1,8 +1,24 @@
+form input {
+    display: block;
+    margin: 20px;
+    padding: 10px 10px;
+    width: 80%;
+    color: rgb(0, 0, 0);
+    border: 1px solid rgba(102, 99, 99, 0.699);
+
+}
+#form{
+    border: 2px solid rgb(158, 157, 157);
+    width: 100%; 
+    padding: 30px 30px;
+}
 #nav{
-    background-color: rgb(136, 160, 180);
+    background-color: rgb(136, 160, 180); 
     display: flex;
     justify-content: space-around;
     padding: 15px;
+    position: fixed;  
+    width: 100%;
 }
 #nav a{
     text-decoration: none;
@@ -10,20 +26,12 @@
     text-transform: uppercase;
     color: black;
 }
-form input {
-    display: block;
-    margin: 20px;
-    padding: 10px 10px;
-    width: 80%;
-    border: 1px solid rgba(102, 99, 99, 0.699);
-    background-color: white;
-}
-#form{
-    border: 2px solid rgb(158, 157, 157);
-    width: 100%; 
-    padding: 30px 30px;
-}
 #form-box{
+    background-image: url(https://t3.ftcdn.net/jpg/03/55/60/70/360_F_355607062_zYMS8jaz4SfoykpWz5oViRVKL32IabTP.jpg);
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -33,10 +41,12 @@ form input {
 #submit{
     border: 0.5px solid rgb(122, 115, 115); 
     background-color: white;
-    padding: 5px 5px;
+    padding: 10px 10px;
     border-radius: 5px;
     width: 50%;
+
 }
+
 #htext{
     font-size: 30px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
