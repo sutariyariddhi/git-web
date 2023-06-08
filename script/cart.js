@@ -1,106 +1,111 @@
- import nav from "../components/nav.js"
+import nav from "../components/nav.js";
+document.getElementById("nav").innerHTML = nav();
 
-document.getElementById("nav").innerHTML=nav()
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let totalprice = 0;
-for (let i = 0; i < cart.length; i++) {
-  totalprice += cart[i].price * cart[i].qty;
-}
+cart.map((ele) => {
+  totalprice += ele.price * ele.qty * 10;
+});
 
-document.getElementById("price").innerHTML = `Total Price: ${totalprice}`;
+let cartui = (cart) => {
+  cart.map((ele, index) => {
+    let imgdiv = document.createElement("div");
+    let img = document.createElement("img");
+    img.src = ele.image;
+    imgdiv.append(img);
+    imgdiv.setAttribute("class", "imgdiv");
 
+    let tdiv = document.createElement("div");
+    let title = document.createElement("h3");
+    title.innerHTML = ele.title;
+    tdiv.setAttribute("class", "tdiv");
+    let prize = document.createElement("p");
+    prize.innerHTML = `${ele.price * 10}$`;
+    tdiv.append(title);
+    prize.setAttribute("class", "prize");
 
-{/* <div class="main-1">
-        <div class="main-1-img">
-          <img
-            class="1-img"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYsQtoYKl7EgvDrtvTsDU5AJieKjtT_b2yiQ&usqp=CAU"
-            alt=""
-          />
-        </div>
-        <div class="main-1-2">
-          <h1 class="main-2-h1">Apple juice</h1>
-        </div>
+    let qtydiv = document.createElement("div");
+    let minus = document.createElement("button");
+    minus.innerHTML = "-";
 
+    minus.addEventListener("click", () => {
+      console.log(ele);
+      let qty = cart[index].qty;
+      if (qty == 1) {
+        cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
 
-        <div class="main-3">
-          <p class="main-3-p1">+</p>
-          <p class="main-3-p2">2</p>
-          <p class="main-3-p3">-</p>
-        </div>
+        console.log(cart);
+        window.location.reload();
+      } else {
+        cart[index].qty -= 1;
+        localStorage.setItem("cart", JSON.stringify(cart));
+        window.location.reload();
+      }
+    });
+    let num = document.createElement("button");
+    num.innerHTML = ele.qty;
+    let plus = document.createElement("button");
+    plus.innerHTML = "+";
 
+    plus.addEventListener("click", () => {
+      console.log("test");
+      cart[index].qty += 1;
+      localStorage.setItem("cart", JSON.stringify(cart));
+      window.location.reload();
+    });
+    qtydiv.append(minus, num, plus, prize);
+    qtydiv.setAttribute("class", "qtydiv");
 
-        <div class="main-2">
-     
-            <h1 class="main-2-2h1">$2.99</h1>
-      
-        </div>
-      </div> */}
+    let parent = document.createElement("div");
+    parent.append(imgdiv, tdiv, qtydiv);
+    document.getElementById("cartpage").append(parent);
+    parent.setAttribute("class", "parent");
+  });
+};
+cartui(cart);
 
-let cartui=(cart)=>{
+let ui = () => {
+  let parent2 = document.createElement("div");
+  let lable = document.createElement("label");
+  lable.innerHTML = "Promo Code:";
+  let lable2 = document.createElement("label");
+  lable2.innerHTML = "Totle Price:";
+  let promocode = document.createElement("input");
+  promocode.placeholder = "enter your promo code";
+  promocode.setAttribute("class", "promocode");
+  let dprice = document.createElement("p");
 
-  cart.map((ele)=>{
+  let apply = document.createElement("submit");
+  apply.innerHTML = "enter";
+  apply.setAttribute("class", "enter");
+  parent2.append(lable, promocode, apply);
+  document.getElementById("page").append(parent2);
+  document.getElementById("price").append(lable2, totalprice);
 
-let divimg=document.createElement("div");
-let img=document.createElement("img");
-img.src=ele.image
+  parent2.setAttribute("class", "parent2");
 
-divimg.append(img)
-divimg.setAttribute("class", "cart-img")
+  lable.setAttribute("class", "lable");
 
-let namediv=document.createElement("div")
-let name=document.createElement("h1")
-name.innerHTML=ele.title
+  promocode.addEventListener("keypress", (e) => {
+    console.log(e.key);
+    if (e.key == "Enter") {
+      console.log(promocode.value);
+      if (promocode.value == "code20") {
+        totalprice -= (totalprice / 100) * 20;
+        console.log(totalprice);
+        dprice.innerHTML = `Final price :${totalprice}`;
+        parent2.append(dprice);
+        dprice.setAttribute("class", "dprice");
+      }
+    }
+  });
 
-name.setAttribute("class", "title")
-namediv.append(name)
+  let price = "";
 
-namediv.setAttribute("class","title-main")
-
-
-
-let qtydiv = document.createElement("div")
-let minus=document.createElement("p")
-minus.innerHTML="-"
-let plus=document.createElement("p")
-plus.innerHTML="+"
-let qty=document.createElement("p")
-qty.innerHTML=ele.qty
-
-
-
-minus.setAttribute("class","plus")
-plus.setAttribute("class","mines")
-qty.setAttribute("class","num")
-qtydiv.setAttribute("class","plus-mines")
-qtydiv.append(minus,qty,plus)
-
-
-
-let pricediv=document.createElement("div")
-let price=document.createElement("h1")
-price.innerHTML=ele.price
-price.setAttribute("class", "price")
-pricediv.append(price)
-pricediv.setAttribute("class", "price-heading")
-
-let del = document.createElement("del")
-del.innerHTML = "delete"
-del.addEventListener("click",function(event){
- event.target.parentNode.remove()
-})
-
-let parent=document.createElement("div")
-parent.append(divimg,namediv,qtydiv,del,pricediv)
-
-parent.setAttribute("class", "main")
-
-document.querySelector("section").append(parent)
-console.log(parent);
-  })
-
-
-}
-
-cartui(cart)
-
+  for (let i = 1; i < totalprice.length; i++) {
+    price += totalprice[i];
+  }
+  document.getElementById("price").append(price);
+};
+ui();

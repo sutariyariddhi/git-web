@@ -8,16 +8,14 @@ let show = (data) => {
 
   data.map((ele) => {
     let img = document.createElement("img");
-    img.src = ele.image
-    img.setAttribute("class","img-pro");
+    img.src = ele.image;
+    img.setAttribute("class", "img-pro");
     let title = document.createElement("h3");
     title.innerHTML = ele.title;
     let price = document.createElement("p");
     price.innerHTML = ele.price;
     let category = document.createElement("p");
     category.innerHTML = ele.category;
-    // let rating = document.createElement("h5");
-    // rating.innerHTML = ele.rating;
     let btn = document.createElement("button");
     btn.innerHTML = "add to cart";
     let btn2 = document.createElement("button");
@@ -48,6 +46,7 @@ let show = (data) => {
     });
   });
 };
+
 fetch("https://fakestoreapi.com/products")
-.then((response) => response.json())
-.then((data) => show(data));
+  .then((response) => response.json())
+  .then((data) => show(data));
