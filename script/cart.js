@@ -43,7 +43,7 @@ let cartui = (cart) => {
         window.location.reload();
       }
     });
-    let num = document.createElement("button");
+    let num = document.createElement("p");
     num.innerHTML = ele.qty;
     let plus = document.createElement("button");
     plus.innerHTML = "+";
