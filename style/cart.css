@@ -26,6 +26,12 @@ img {
     align-items: center;
 }
 div#price {
+    margin: 30px 30px;
+    font-size: 25px;
+    color: #858585;
+}
+p.lable {
+    margin: 30px 30px;
     font-size: 25px;
     color: #858585;
 }
@@ -77,6 +83,7 @@ label {
 
 .promocode {
     padding: 5px 30px;
+    margin: 0 0 0 30px;
 }
 .page{
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;

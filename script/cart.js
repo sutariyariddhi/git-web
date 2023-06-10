@@ -67,7 +67,7 @@ cartui(cart);
 
 let ui = () => {
   let parent2 = document.createElement("div");
-  let lable = document.createElement("label");
+  let lable = document.createElement("p");
   lable.innerHTML = "Promo Code:";
   let lable2 = document.createElement("label");
   lable2.innerHTML = "Totle Price:";
