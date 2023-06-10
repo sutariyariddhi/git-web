@@ -101,11 +101,5 @@ let ui = () => {
     }
   });
 
-  let price = "";
-
-  for (let i = 1; i < totalprice.length; i++) {
-    price += totalprice[i];
-  }
-  document.getElementById("price").append(price);
 };
 ui();

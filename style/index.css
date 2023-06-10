@@ -1,5 +1,5 @@
 #nav{
-    background-color: rgb(136, 160, 180); 
+    background-color: #f0f3ff; 
     display: flex;
     justify-content: space-around;
     padding: 15px;
@@ -13,7 +13,7 @@
     color: black;
 }
 #banner{
-    background-image: url(https://t4.ftcdn.net/jpg/03/20/68/71/360_F_320687108_3UZ13l44Ob5cel208W7DaRnD5BR9DfY7.jpg);
+    background-image: url(https://img.freepik.com/free-vector/shopping-time-banner-with-realistic-map-cart-gift-bags-vector-illustration_548887-120.jpg);
     background-repeat: no-repeat;
     background-size: cover;
    height: 100vh;
