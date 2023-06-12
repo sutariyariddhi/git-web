@@ -19,10 +19,14 @@ let cartui = (cart) => {
     let title = document.createElement("h3");
     title.innerHTML = ele.title;
     tdiv.setAttribute("class", "tdiv");
+    tdiv.append(title);
+
+    let prizediv = document.createElement("div");
     let prize = document.createElement("p");
     prize.innerHTML = `${ele.price * 10}$`;
-    tdiv.append(title);
+    prizediv.append(prize)
     prize.setAttribute("class", "prize");
+prizediv.setAttribute("class","prizediv");
 
     let qtydiv = document.createElement("div");
     let minus = document.createElement("button");
@@ -54,11 +58,11 @@ let cartui = (cart) => {
       localStorage.setItem("cart", JSON.stringify(cart));
       window.location.reload();
     });
-    qtydiv.append(minus, num, plus, prize);
+    qtydiv.append(minus, num, plus);
     qtydiv.setAttribute("class", "qtydiv");
 
     let parent = document.createElement("div");
-    parent.append(imgdiv, tdiv, qtydiv);
+    parent.append(imgdiv, tdiv, qtydiv,prizediv);
     document.getElementById("cartpage").append(parent);
     parent.setAttribute("class", "parent");
   });
